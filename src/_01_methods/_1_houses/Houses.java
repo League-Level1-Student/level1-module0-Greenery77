@@ -85,23 +85,42 @@ public class Houses {
 		
 		rob.setPenColor(houseColor);
 		rob.move(height);
+		
+		if (height>=151) {
+			
+			drawFlatRoof(houseColor);
+			
+		}
+		else if (height<=150) {
+			
+			drawPointedRoof(houseColor);
+		
+		}
+			
+			rob.move(height);
+			rob.setPenColor(0, 200, 100);
+			rob.turn(-90);
+			rob.move(30);
+			rob.setAngle(0);
+		
+	}
+	
+	static void drawFlatRoof(Color houseColor) {
+
 		rob.turn(90);
 		rob.move(50);
 		rob.turn(90);
-		rob.move(height);
-		rob.setPenColor(0, 200, 100);
-		rob.turn(-90);
-		rob.move(30);
-		rob.setAngle(0);
-
+	
 	}
-	static void drawPointedRoof() {
+	
+	static void drawPointedRoof(Color houseColor) {
 		
-		rob.setPenColor(e);
+		rob.setPenColor(houseColor);
 		rob.setAngle(45);
 		rob.move(30);
 		rob.setAngle(135);
 		rob.move(30);
+		rob.setAngle(180);
 	}
 	
 
