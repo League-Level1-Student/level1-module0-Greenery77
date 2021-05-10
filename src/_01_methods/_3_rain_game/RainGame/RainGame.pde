@@ -49,7 +49,10 @@ void draw() {
   // start a new rain drop falling from the top.
     int randomNumber = (int) random(width+10);
    if (y>=400 && y<=450){
-     checkCatch(x);
+     if (checkCatch(x)){
+        x = randomNumber;
+        y = 0;
+     }
    }
   if (y>= 500){
     x = randomNumber;
@@ -67,7 +70,7 @@ void draw() {
   fill(#979C9D);
   stroke(#747A81);
   rect(bucketX, 400, 50, bucketWidth);
-  
+ 
   // Make the bucket move side-to-side with the mouse. Hint: use mouseX
   
   bucketX = mouseX;
@@ -75,7 +78,7 @@ void draw() {
   // When the rain drop has fallen to the bucket, call the checkCatch method
   //  to see if the rain drop is in the bucket.
   
-  checkCatch(x);
+
  
  //This code will display the score on the screen. 
  // Change the color if it does not show up on your background.
@@ -86,10 +89,15 @@ void draw() {
 
 
 // DO NOT CHANGE THIS METHOD - CALL IT FROM THE DRAW METHOD 
-    void checkCatch(int x){
-         if (x > mouseX && x < mouseX+bucketWidth)
+    boolean checkCatch(int x){
+         if (x > mouseX && x < mouseX+bucketWidth){
             score++;
-         else if (score > 0) 
+            return true;
+         }
+         else if (score > 0) {
             score--;
+            return false;
+         }
         println("Your score is now: " + score);
-    }
+        return false;
+  }
