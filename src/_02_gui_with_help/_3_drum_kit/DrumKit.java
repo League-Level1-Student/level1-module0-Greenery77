@@ -71,7 +71,7 @@ public class DrumKit implements MouseListener {
 
 		// Add this MouseListener to drumLabel
 		
-		
+		drumLabel.addMouseListener(this);
 		
 		// *** Write the code in the mouseClicked() method below
 
@@ -87,9 +87,10 @@ public class DrumKit implements MouseListener {
 		// Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
 
+		JOptionPane.showMessageDialog(null, "drum sound");
+		
 		JLabel labelClicked = (JLabel) e.getSource(); // This line gets the label
-														// that the mouse
-		labelClicked.setLayout(new GridLayout());												// clicked on
+																						// clicked on
 
 		// You can use the drum sound provided ("drum.wav") or	
 		// download another drum sound (.wav) and drop it into the Drum Kit package.
